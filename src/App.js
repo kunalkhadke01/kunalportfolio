@@ -29,7 +29,7 @@ function App(props) {
   return (
     <div style={{
       textAlign: "center",
-      border: '5px outset red',
+      border: '1px outset red',
       backgroundColor: 'lightblue',
       padding: 50,
       margin: 150
@@ -42,7 +42,7 @@ function App(props) {
         }}
         onSubmit={values => {
           // same shape as initial values
-          props.history.push('/selfcam')
+          props.history.push({ pathname: '/selfcam', state: values })
           console.log(values);
         }}
       >

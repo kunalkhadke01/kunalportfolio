@@ -27,16 +27,16 @@ class Selfcam extends React.Component {
         // console.log("this is img", image)
         this.setState({ screenshot: imageSrc })
     };
-
-    render() {
+    render(props) {
         const { cameraDirection } = this.state;
         const videoHeight = '10%';
         const videoWidth = '60%';
+        console.log(this.props)
         return (
             <div className="page-wrap">
                 <div className="row" style={{ textAlign: "center" }}>
                     <div className="col-lg-12">
-
+                        <h1>welcome to webcam {this.props.location.state.username}</h1>
                         <Webcam
                             cameraSelector={'back'}
                             fullResolutionScreenshot
