@@ -1,6 +1,10 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, connect } from 'formik';
+import {
+  Link
+} from "react-router-dom";
 import './App.css';
+import Selfcam from './Selfcam';
 
 function validateEmail(value) {
   let error;
@@ -50,12 +54,16 @@ function App() {
               <Field name="username" validate={validateUsername} placeholder='username' />
               {errors.username && touched.username && <div>{errors.username}</div>}
               <br></br>
-              <button type="submit">Submit</button>
+              <Link to='/selfcam'>
+                <button type="submit">Submit</button>
+              </Link>
             </Form>
           </div>
         )}
       </Formik>
+
     </div>
+
   );
 }
 
