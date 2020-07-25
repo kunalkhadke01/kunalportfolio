@@ -25,7 +25,7 @@ function validateUsername(value) {
 }
 
 
-function App() {
+function App(props) {
   return (
     <div style={{
       textAlign: "center",
@@ -42,6 +42,7 @@ function App() {
         }}
         onSubmit={values => {
           // same shape as initial values
+          props.history.push('/selfcam')
           console.log(values);
         }}
       >
@@ -54,9 +55,9 @@ function App() {
               <Field name="username" validate={validateUsername} placeholder='username' />
               {errors.username && touched.username && <div>{errors.username}</div>}
               <br></br>
-              <Link to='/selfcam'>
-                <button type="submit">Submit</button>
-              </Link>
+              {/* <Link to='/selfcam'> */}{console.log(props)}
+              <button type="submit" >Submit</button>
+              {/* </Link> */}
             </Form>
           </div>
         )}
