@@ -51,9 +51,26 @@ class Selfcam extends React.Component {
                     </div>
                 </div>
                 <div className="row" style={{ textAlign: "center" }}>
-                    <button className="btn btn-primary" type="button" style={{ backgroundColor: "lightblue", padding: 10 }} onClick={(screenshot) => { this.capture(screenshot) }}>
-                        capture
-                    </button>
+                    {/* <button className="btn btn-primary"
+                        type="button"
+                        style={{
+                            backgroundColor: "black",
+                            borderRadius: '50%',
+                            fontSize: 50,
+                            color: 'white',
+                            transform: 'translate(-50%, -50%)',
+                        }} >
+                        +
+                    </button> */}
+                    <i class="fa fa-camera"
+                        style={{
+                            fontSize: "50px",
+                            transform: 'translate(-50%, -50%)',
+                            paddingBottom: 60,
+                            color: 'blue'
+                        }}
+                        onClick={(screenshot) => { this.capture(screenshot) }}
+                    ></i>
                     <div>
                         {console.log(`data:image/jpeg;base64,${this.state.screenshot}`)}
                         <img src={`data:image/jpeg;base64,${this.state.screenshot}`} />
