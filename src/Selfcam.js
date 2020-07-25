@@ -30,11 +30,11 @@ class Selfcam extends React.Component {
 
     render() {
         const { cameraDirection } = this.state;
-        const videoHeight = 400;
-        const videoWidth = 400;
+        const videoHeight = '10%';
+        const videoWidth = '60%';
         return (
             <div className="page-wrap">
-                <div className="row">
+                <div className="row" style={{ textAlign: "center" }}>
                     <div className="col-lg-12">
 
                         <Webcam
@@ -50,8 +50,8 @@ class Selfcam extends React.Component {
 
                     </div>
                 </div>
-                <div className="row">
-                    <button className="btn btn-primary" type="button" onClick={(screenshot) => { this.capture(screenshot) }}>
+                <div className="row" style={{ textAlign: "center" }}>
+                    <button className="btn btn-primary" type="button" style={{ backgroundColor: "lightblue", padding: 10 }} onClick={(screenshot) => { this.capture(screenshot) }}>
                         capture
                     </button>
                     <div>
