@@ -47,7 +47,7 @@ class Selfcam extends React.Component {
         return (
             <div className="container">
                 <h4 style={{ textAlign: 'center' }}>welcome to webcam {this.props.location.state.username}</h4>
-                <div className="row" style={{ marginTop: 40 }}>
+                <div className="row">
                     <div className="col-lg-6" >
                         <div style={{ boxShadow: '0 2px 2px 0', width: "90%" }}>
                             <Webcam
@@ -84,13 +84,14 @@ class Selfcam extends React.Component {
                     </div>
 
                     <div className="col-lg-6">
-                        <div style={{ boxShadow: '0 2px 2px 0', width: "90%" }}>
+                        <div style={{
+                            boxShadow: '0 2px 2px 0',
+                            width: "90%",
+                            height: "400px",
+                            overflow: 'scroll'
+                        }}>
                             <h5 style={{ padding: 10 }}>Image gallery</h5>
-                            <div style={{
-                                width: "250px",
-                                height: "196px",
-                                overflow: 'scroll'
-                            }}>
+                            <div>
                                 {console.log(this.state.screenshot)}
                                 {this.state.screenshot.map((img, index) => {
                                     return (

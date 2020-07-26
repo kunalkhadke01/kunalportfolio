@@ -29,41 +29,48 @@ function App(props) {
   return (
     <div
       class="container"
-      style={{
-        textAlign: "center",
-        border: '1px outset blue',
-        backgroundColor: 'lightblue',
-        // padding: 50,
-        marginTop: "50%"
-      }}>
-      <h3>Signup here</h3>
-      <Formik
-        initialValues={{
-          username: '',
-          email: '',
-        }}
-        onSubmit={values => {
-          // same shape as initial values
-          props.history.push({ pathname: '/selfcam', state: values })
-          console.log(values);
-        }}
-      >
-        {({ errors, touched, isValidating }) => (
-          <div >
-            <Form>
-              <Field name="email" validate={validateEmail} name='email' placeholder='email' />
-              {errors.email && touched.email && <div>{errors.email}</div>}
-              <br></br>
-              <Field name="username" validate={validateUsername} placeholder='username' />
-              {errors.username && touched.username && <div>{errors.username}</div>}
-              <br></br>
-              {/* <Link to='/selfcam'> */}{console.log(props)}
-              <button type="submit" style={{ backgroundColor: "green", color: 'white', margin: 10 }}>Submit</button>
-              {/* </Link> */}
-            </Form>
-          </div>
-        )}
-      </Formik>
+    >
+      <div
+        style={{
+          textAlign: "center",
+          border: '1px outset blue',
+          backgroundColor: 'lightblue',
+          margin: 0,
+          padding: 10,
+          position: "absolute",
+          top: "30%",
+          left: "30%",
+        }}>
+        <h3>Signup here</h3>
+        <Formik
+          initialValues={{
+            username: '',
+            email: '',
+          }}
+          onSubmit={values => {
+            // same shape as initial values
+            props.history.push({ pathname: '/selfcam', state: values })
+            console.log(values);
+          }}
+        >
+          {({ errors, touched, isValidating }) => (
+            <div >
+              <Form>
+                <Field name="email" validate={validateEmail} name='email' placeholder='email' />
+                {errors.email && touched.email && <div>{errors.email}</div>}
+                <br></br>
+                <Field name="username" validate={validateUsername} placeholder='username' />
+                {errors.username && touched.username && <div>{errors.username}</div>}
+                <br></br>
+                {/* <Link to='/selfcam'> */}{console.log(props)}
+                <button type="submit" style={{ backgroundColor: "green", color: 'white', margin: 10 }}>Submit</button>
+                {/* </Link> */}
+              </Form>
+            </div>
+          )}
+        </Formik>
+      </div>
+
 
     </div>
 
