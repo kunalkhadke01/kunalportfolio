@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Login from './Login';
-import Selfcam from './Selfcam';
+// import App from './App';
+// import Selfcam from './Selfcam';
+import LoginForm from "./Form";
+import UserDetail from "./Userdetail";
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -12,8 +13,9 @@ ReactDOM.render(
         {/* <App /> */}
         <div>
             <Switch>
-                <Route path="/" exact component={App} />
-                <Route path="/selfcam" component={Selfcam} />
+                <Route path="/" exact component={LoginForm} />
+                {/* <Route path="/selfcam" component={Selfcam} /> */}
+                <Route path="/userdetail" component={UserDetail} />
             </Switch>
         </div>
     </BrowserRouter>
