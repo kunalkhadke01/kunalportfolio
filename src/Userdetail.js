@@ -20,20 +20,24 @@ class UserDetail extends React.Component {
                     }}>
                     <div class="col-sm-12">
                         <div class="col-sm-6">
-                            <h5>username</h5>
-                            <h5>password</h5>
-                            <h5>email</h5>
-                            <h5>phone no.</h5>
-                            <h5>address</h5>
+                            <h5>Address 1</h5>
+                            <h5>Address 2</h5>
+                            <h5>Country</h5>
+                            <h5>State</h5>
+                            <h5>City</h5>
+                            <h5>product</h5>
                         </div>
                         <div class="col-sm-6">
-                            <h5>{this.props.history.location.state.username}</h5>
-                            <h5>{this.props.history.location.state.password}</h5>
-                            <h5>{this.props.history.location.state.email}</h5>
-                            <h5>{this.props.history.location.state.phonenumber}</h5>
-                            <h5>{this.props.history.location.state.address}</h5>
+                            <h5>{this.props.history.location.state[0].Address1}</h5>
+                            <h5>{this.props.history.location.state[0].Address2}</h5>
+                            <h5>{this.props.history.location.state[0].Country}</h5>
+                            <h5>{this.props.history.location.state[0].State}</h5>
+                            <h5>{this.props.history.location.state[0].City}</h5>
+                            <h5>{this.props.history.location.state[1]}</h5>
+
                         </div>
                     </div>
+                    <button style={{ backgroundColor: "lightblue", width: 100 }} onClick={() => alert("Thank you for order")}>place order</button>
                 </div>
             </Fragment>
         )

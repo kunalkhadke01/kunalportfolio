@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Selfcam from './Selfcam';
+import ListView from './Listview';
+// import Selfcam from './Selfcam';
 // import LoginForm from "./Form";
-// import UserDetail from "./Userdetail";
+import UserDetail from "./Userdetail";
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -12,10 +13,14 @@ ReactDOM.render(
     <BrowserRouter>
         {/* <App /> */}
         <div>
+            <nav className="Header">
+                <h1>productmania</h1>
+            </nav>
             <Switch>
-                <Route path="/" exact component={App} />
-                <Route path="/selfcam" component={Selfcam} />
-                {/* <Route path="/userdetail" component={UserDetail} /> */}
+                <Route path="/" exact component={ListView} />
+                <Route path="/detail" component={App} />
+                {/* <Route path="/selfcam" component={Selfcam} /> */}
+                <Route path="/userdetail" component={UserDetail} />
             </Switch>
         </div>
     </BrowserRouter>

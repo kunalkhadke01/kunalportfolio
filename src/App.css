@@ -33,3 +33,22 @@
     transform: rotate(360deg);
   }
 }
+.List{
+  margin-left: 30%;
+  margin-top: 100px;
+  /* text-align: center; */
+  
+}
+
+ul {
+  list-style: none;
+  
+}
+Form{
+  text-align:center;
+}
+.Header{
+padding:"0px";
+margin:0;
+background-color: #61dafb;
+}
