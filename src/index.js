@@ -8,10 +8,17 @@ import ListView from './Listview';
 import UserDetail from "./Userdetail";
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import { createStore } from './redux';
+// import allData from './reducers';
+// import { Provider } from 'react-redux';
+
+
+// const store = createStore(allData)
 
 ReactDOM.render(
     <BrowserRouter>
         {/* <App /> */}
+        {/* <Provider store={store}> */}
         <div>
             <nav className="Header">
                 <h1>productmania</h1>
@@ -23,6 +30,7 @@ ReactDOM.render(
                 <Route path="/userdetail" component={UserDetail} />
             </Switch>
         </div>
+        {/* </Provider> */}
     </BrowserRouter>
     , document.getElementById('root'));
 
