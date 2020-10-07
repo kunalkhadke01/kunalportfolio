@@ -1,5 +1,6 @@
 .container{
-  position: absolute;
-padding:"0px";
 background-color: #61dafb;
+}
+.checked {
+  color: blue;
 }

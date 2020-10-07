@@ -5,6 +5,7 @@ import Portfolio from './Portfolio';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import AlertDialogSlide from './AboutMe';
 // import { createStore } from './redux';
 // import allData from './reducers';
 // import { Provider } from 'react-redux';
@@ -17,10 +18,10 @@ ReactDOM.render(
         {/* <App /> */}
         {/* <Provider store={store}> */}
         <div>
-            <Portfolio />
+            {/* <Portfolio /> */}
             <Switch>
-                {/* <Route path="/" exact component={ListView} /> */}
-
+                <Route path="/" exact component={Portfolio} />
+                <Route path="/aboutme" component={AlertDialogSlide} />
                 {/* <Route path="/selfcam" component={Selfcam} /> */}
                 {/* <Route path="/userdetail" component={UserDetail} /> */}
             </Switch>
