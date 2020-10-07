@@ -37,11 +37,9 @@ function App(props) {
         }}
         onSubmit={values => {
           props.history.push({
-            pathname: '/userdetail',
-            state: [values,
-              props.location.state]
+            pathname: '/userdetail'
           })
-          console.log(values);
+          // console.log(values);
         }}
       >
         {({ errors, touched, isValidating }) => (

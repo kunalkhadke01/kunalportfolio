@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Portfolio from './Portfolio';
 import App from './App';
-import ListView from './Listview';
-// import Selfcam from './Selfcam';
-// import LoginForm from "./Form";
-import UserDetail from "./Userdetail";
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import { createStore } from './redux';
@@ -20,14 +17,12 @@ ReactDOM.render(
         {/* <App /> */}
         {/* <Provider store={store}> */}
         <div>
-            <nav className="Header">
-                <h1>productmania</h1>
-            </nav>
+            <Portfolio />
             <Switch>
-                <Route path="/" exact component={ListView} />
-                <Route path="/detail" component={App} />
+                {/* <Route path="/" exact component={ListView} /> */}
+
                 {/* <Route path="/selfcam" component={Selfcam} /> */}
-                <Route path="/userdetail" component={UserDetail} />
+                {/* <Route path="/userdetail" component={UserDetail} /> */}
             </Switch>
         </div>
         {/* </Provider> */}

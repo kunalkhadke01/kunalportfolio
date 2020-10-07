@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
                 })}
                 onSubmit={values => {
                     alert('SUCCESS!! :-)\n\n' + JSON.stringify(values, null, 4))
-                    this.props.history.push({ pathname: '/userdetail', state: values })
+                    // this.props.history.push({ pathname: '/userdetail', state: values })
                 }}
                 render={({ errors, status, touched }) => (
                     <Form>
