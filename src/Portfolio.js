@@ -102,7 +102,7 @@ class Portfolio extends React.Component {
                                 <p>yoga </p>
                             </div>
                             <div>
-                                <p>play guitar </p>
+                                <p>playing guitar </p>
                             </div>
                             <div>
                                 <p>singing </p>
