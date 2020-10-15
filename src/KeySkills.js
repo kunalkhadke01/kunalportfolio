@@ -21,9 +21,9 @@ export default function KeySkills() {
                 <DialogContentText id="alert-dialog-slide-description">
                     <h3>Technological Skills</h3>
                     <ul>
-                        <li><h5>Web Technologies & Frameworks: React.js,Redux,HTML5, SASS, CSS,Mongodb,mySQL, Angular2.</h5></li>
+                        <li><h5>Web Technologies & Frameworks: React.js,Redux,HTML5, SASS, CSS,Mongodb,mySQL,electron.js.</h5></li>
                         <li><h5>Scripts/UI: Javascript, ES6, Bootstrap.</h5></li>
-                        <li><h5>Web debug tools: GIT,postman</h5></li>
+                        <li><h5>Web debug tools: GIT,postman,AWS amplify,AWS route 53</h5></li>
                     </ul>
                     <h3>Managerial skills </h3>
                     <ul>
