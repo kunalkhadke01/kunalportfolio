@@ -20,7 +20,7 @@ export default function AboutMe() {
             <DialogContent>
                 <DialogContentText id="alert-dialog-slide-description">
                     <h5>Enthusiastic learner who grasp new concepts and technological skills.
-                    A highly motivated, energetic individual and a team player with good communication and interpersonal skills.
+                    A highly motivated,energetic individual and a team player with good communication and interpersonal skills.
                     Work with +ve attitude to contribute the healthy functionality of the organization.</h5>
                 </DialogContentText>
             </DialogContent>
