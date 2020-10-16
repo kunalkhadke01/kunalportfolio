@@ -48,7 +48,7 @@ class Portfolio extends React.Component {
             margin: 12
         }
         const avatar = {
-            verticalAlign: "middle",
+            // verticalAlign: "middle",
             width: "140px",
             height: "140px",
             borderRadius: "50%",
