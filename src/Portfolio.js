@@ -50,7 +50,7 @@ class Portfolio extends React.Component {
         const avatar = {
             // verticalAlign: "middle",
             // imageOrientation: "-90deg",
-            // transform: "rotate(90deg)",
+            // transform: "rotate(-90deg)",
             width: "140px",
             height: "140px",
             borderRadius: "50%",
@@ -64,7 +64,7 @@ class Portfolio extends React.Component {
                 <div class="row">
                     <div class="col-xs-4" style={{ backgroundColor: "#ff8080" }}>
                         <div>
-                            <div class="col-sm-12" style={{ margin: 10 }} >
+                            <div class="col-sm-12" style={{ margin: 10, textAlign: "center" }} >
                                 <img src={profile} name="myimage" alt="profile" style={avatar} />
                                 <h4>Kunal Mukund Khadke</h4>
                                 <p>React.js developer</p>
@@ -72,6 +72,7 @@ class Portfolio extends React.Component {
                             </div>
 
                         </div>
+                        <hr></hr>
                         <div class="col-xs-12">
                             <h4>Contact</h4>
                             <div class="col-sm-2">
@@ -139,7 +140,7 @@ class Portfolio extends React.Component {
                         </div>
                     </div>
 
-                    <div class="col-xs-8">
+                    <div class="col-xs-8" style={{ backgroundColor: "#61dafb" }}>
                         <div class="col-sm-2">
                             <video height="240" style={{ marginTop: 24 }} autoPlay>
                                 <source src={sample} type="video/mp4"></source>
