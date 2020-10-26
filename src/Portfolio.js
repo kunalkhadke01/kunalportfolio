@@ -45,7 +45,7 @@ class Portfolio extends React.Component {
     render(props) {
         // const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
         const button = {
-            margin: 12
+            margin: 15.9
         }
         const avatar = {
             // verticalAlign: "middle",
