@@ -50,7 +50,7 @@ class Portfolio extends React.Component {
         const avatar = {
             // verticalAlign: "middle",
             // imageOrientation: "-90deg",
-            transform: "rotate(-90deg)",
+            // transform: "rotate(90deg)",
             width: "140px",
             height: "140px",
             borderRadius: "50%",
