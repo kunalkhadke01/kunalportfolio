@@ -6,27 +6,28 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AlertDialogSlide from './AboutMe';
-// import { createStore } from './redux';
-// import allData from './reducers';
-// import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import allData from './Services/index';
+import { Provider } from 'react-redux';
+import DetailPolicy from './DetailPolicy'
 
-
-// const store = createStore(allData)
+const store = createStore(allData)
 
 ReactDOM.render(
     <BrowserRouter>
         {/* <App /> */}
-        {/* <Provider store={store}> */}
-        <div>
-            {/* <Portfolio /> */}
-            <Switch>
-                <Route path="/" exact component={Portfolio} />
-                <Route path="/aboutme" component={AlertDialogSlide} />
-                {/* <Route path="/selfcam" component={Selfcam} /> */}
-                {/* <Route path="/userdetail" component={UserDetail} /> */}
-            </Switch>
-        </div>
-        {/* </Provider> */}
+        <Provider store={store}>
+            <div>
+                {/* <Portfolio /> */}
+                <Switch>
+                    <Route path="/" exact component={App} />
+                    <Route path="/detail" component={DetailPolicy} />
+                    <Route path="/aboutme" component={AlertDialogSlide} />
+                    {/* <Route path="/selfcam" component={Selfcam} /> */}
+                    {/* <Route path="/userdetail" component={UserDetail} /> */}
+                </Switch>
+            </div>
+        </Provider>
     </BrowserRouter>
     , document.getElementById('root'));
 
