@@ -9,8 +9,10 @@ import AlertDialogSlide from './AboutMe';
 import { createStore } from 'redux';
 import allData from './Services/index';
 import { Provider } from 'react-redux';
-import DetailPolicy from './DetailPolicy'
-
+import DetailPolicy from './DetailPolicy';
+import Users from './registrationForm.js/Addinfo';
+import StudentsDetail from './registrationForm.js/StudentsDetail'
+import UpdateForm from './registrationForm.js/UpdateForm'
 const store = createStore(allData)
 
 ReactDOM.render(
@@ -20,9 +22,13 @@ ReactDOM.render(
             <div>
                 {/* <Portfolio /> */}
                 <Switch>
-                    <Route path="/" exact component={App} />
+                    <Route path="/" exact component={Users} />
+                    <Route path="/student-detail" component={StudentsDetail} />
+                    <Route path="/udate_form" component={UpdateForm} />
+
+                    {/* <Route path="/" exact component={App} />
                     <Route path="/detail" component={DetailPolicy} />
-                    <Route path="/aboutme" component={AlertDialogSlide} />
+                    <Route path="/aboutme" component={AlertDialogSlide} /> */}
                     {/* <Route path="/selfcam" component={Selfcam} /> */}
                     {/* <Route path="/userdetail" component={UserDetail} /> */}
                 </Switch>
