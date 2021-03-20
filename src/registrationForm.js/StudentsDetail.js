@@ -84,8 +84,6 @@ function StudentsDetail(props) {
                                         })
                                         setUsers([props.list.usersList.state])
 
-
-
                                     }}>Delete</button>
                                 </div>
                             </div>
