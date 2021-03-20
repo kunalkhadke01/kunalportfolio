@@ -15,6 +15,12 @@ const user = (state = [initialState], action) => {
             return {
                 state: [initialState, action.data]
             };
+        case "DELETE_USER":
+            return {
+                state: [action.arg.filter((item) => {
+                    return item !== action.data
+                })]
+            }
         default:
             return state
     }

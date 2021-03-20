@@ -36,11 +36,14 @@ function StudentsDetail(props) {
     const classes = useStyles();
     const dispatch = useDispatch()
     const [users, setUsers] = useState(props.list.usersList.state)
-    console.log(props.list.usersList)
+    useEffect(() => {
+
+    })
+    console.log(users)
     return (<div>
 
         <List className={classes.root}>
-            {users ? users.map(item => {
+            {users ? users.map((item, i) => {
                 return (<ListItem>
                     <ListItemAvatar>
                         <Avatar>
@@ -75,15 +78,14 @@ function StudentsDetail(props) {
                                     >Update</button>
                                 </div>
                                 <div class="col-sm-2">
-                                    <button className={classes.button} onClick={() => {
+                                    <button className={classes.button} key="button" onClick={(i) => {
                                         dispatch({
-                                            type: 'DATA_SUBMIT', data: [item].filter((items, index) => {
-                                                return [item].indexOf(items) !== index
+                                            type: 'DELETE_USER', arg: [item].filter((items, index) => {
+                                                return props.list.usersList.state.indexOf(items) != index
                                             })
 
                                         })
-                                        // window.location.reload()
-                                        setUsers(props.list.usersList.state)
+                                        setUsers([item])
 
                                     }}>Delete</button>
                                 </div>
