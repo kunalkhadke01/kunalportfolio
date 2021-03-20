@@ -12,7 +12,7 @@ const user = (state = initialState, action) => {
     console.log(action)
     switch (action.type) {
         case "DATA_SUBMIT":
-            return state = state, action.data;
+            return state = [state, action.data];
         default:
             return state
     }

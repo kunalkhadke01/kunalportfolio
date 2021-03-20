@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -35,13 +35,12 @@ const useStyles = makeStyles((theme) => ({
 function StudentsDetail(props) {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const [users, setUsers] = useState([props.list.usersList])
-
+    const [users, setUsers] = useState(props.list.usersList)
     console.log(props.list.usersList)
     return (<div>
 
         <List className={classes.root}>
-            {users.map(item => {
+            {users && users.map(item => {
                 return (<ListItem>
                     <ListItemAvatar>
                         <Avatar>
@@ -70,7 +69,7 @@ function StudentsDetail(props) {
                                         onClick={() => {
                                             props.history.push({
                                                 pathname: "/udate_form",
-                                                state: props.list.usersList
+                                                state: item
                                             })
                                         }}
                                     >Update</button>
