@@ -8,11 +8,13 @@ const initialState = {
     name: "chetan mujumdar "
 }
 
-const user = (state = initialState, action) => {
+const user = (state = [initialState], action) => {
     console.log(action)
     switch (action.type) {
         case "DATA_SUBMIT":
-            return state = [state, action.data];
+            return {
+                state: [initialState, action.data]
+            };
         default:
             return state
     }

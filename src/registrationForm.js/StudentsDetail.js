@@ -35,12 +35,12 @@ const useStyles = makeStyles((theme) => ({
 function StudentsDetail(props) {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const [users, setUsers] = useState(props.list.usersList)
+    const [users, setUsers] = useState(props.list.usersList.state)
     console.log(props.list.usersList)
     return (<div>
 
         <List className={classes.root}>
-            {users && users.map(item => {
+            {users ? users.map(item => {
                 return (<ListItem>
                     <ListItemAvatar>
                         <Avatar>
@@ -79,17 +79,19 @@ function StudentsDetail(props) {
                                         dispatch({
                                             type: 'DATA_SUBMIT', data: [item].filter((items, index) => {
                                                 return [item].indexOf(items) !== index
-                                            }),
+                                            })
 
                                         })
-                                        window.location.reload()
+                                        // window.location.reload()
+                                        setUsers(props.list.usersList.state)
+
                                     }}>Delete</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </ListItem>)
-            })}
+            }) : <p>Loding...</p>}
         </List>
 
     </div >
