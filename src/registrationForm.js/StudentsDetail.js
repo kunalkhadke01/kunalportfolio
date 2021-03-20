@@ -14,7 +14,7 @@ import { connect, useDispatch } from 'react-redux';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        shadowColor: "//#endregion",
+        shadowColor: "#endregion",
         shadowOpacity: 0.8,
         // maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
@@ -49,42 +49,43 @@ function StudentsDetail(props) {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={item.name} />
-
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div >
-                                    <div class="col-sm-2">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div >
+                                        {/* <div class="col-sm-2"> */}
                                         <p>DOB:{item.birthday}</p>
                                         <p>{item.gender}</p>
-                                    </div>
-                                    <div class="col-sm-2">
+                                        {/* </div> */}
+                                        {/* <div class="col-sm-2"> */}
                                         <p>hobbies:{item.hobbies}</p>
-                                        <p>{item.Address}</p>
+                                        <p>Address:{item.Address}</p>
+                                        {/* </div> */}
+
                                     </div>
-
                                 </div>
-                            </div>
-                            <div class="col-xl-4">
-                                <button className={classes.button}
-                                    onClick={() => {
-                                        props.history.push({
-                                            pathname: "/udate_form",
-                                            state: props.list.usersList
-                                        })
-                                    }}
-                                >Update</button>
-                            </div>
-                            <div class="col-xl-4">
-                                <button className={classes.button} onClick={() => {
-                                    dispatch({
-                                        type: 'DATA_SUBMIT', data: [item].filter((items, index) => {
-                                            return [item].indexOf(items) !== index
-                                        }),
+                                <div class="col-sm-2">
+                                    <button className={classes.button}
+                                        onClick={() => {
+                                            props.history.push({
+                                                pathname: "/udate_form",
+                                                state: props.list.usersList
+                                            })
+                                        }}
+                                    >Update</button>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button className={classes.button} onClick={() => {
+                                        dispatch({
+                                            type: 'DATA_SUBMIT', data: [item].filter((items, index) => {
+                                                return [item].indexOf(items) !== index
+                                            }),
 
-                                    })
-                                    window.location.reload()
-                                }}>Delete</button>
+                                        })
+                                        window.location.reload()
+                                    }}>Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
