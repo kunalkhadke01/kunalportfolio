@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "uppercase",
         padding: "5px 5px",
         borderRadius: "2px",
+    },
+    loading: {
+        textAlign: "center",
+        padding: "20%"
     }
 }));
 
@@ -37,6 +41,10 @@ function StudentsDetail(props) {
     const dispatch = useDispatch()
     const [users, setUsers] = useState(props.list.usersList.state)
     console.log(props.list.usersList)
+
+    if (props.list.usersList.state == 0) {
+        return <p className={classes.loading}>Loading...</p>
+    }
     return (<div>
 
         <List className={classes.root}>
