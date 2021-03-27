@@ -41,7 +41,9 @@ function StudentsDetail(props) {
     const dispatch = useDispatch()
     const [users, setUsers] = useState(props.list.usersList.state)
     console.log(props.list.usersList)
-
+    useEffect(() => {
+        localStorage.setItem("STATE", JSON.stringify(users))
+    })
     if (props.list.usersList.state == 0) {
         return <p className={classes.loading}>Loading...</p>
     }

@@ -37,7 +37,7 @@ function UpdateForm(props) {
     // console.log(colleges.repos ? colleges.repos.name : "")
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
-        // setData(data)
+        props.history.push("/student-detail")
         alert("form is submited")
 
     };

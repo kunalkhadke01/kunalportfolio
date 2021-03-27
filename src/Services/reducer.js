@@ -1,3 +1,5 @@
+const data = localStorage.getItem("STATE")
+const initialState = JSON.parse(data)
 
 
 const user = (state, action) => {
@@ -13,7 +15,7 @@ const user = (state, action) => {
             }
 
         default:
-            return { state: [] }
+            return { state: initialState }
     }
 }
 

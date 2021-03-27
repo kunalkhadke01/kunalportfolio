@@ -156,32 +156,33 @@ function Users(props) {
                     {console.log(value)}
                     <Autocomplete
                         multiple
-                        name="hobbies[ ]"
+                        name={`hobbies[${value}]`}
                         options={top100Films}
                         disableCloseOnSelect
                         getOptionLabel={option => option.title}
 
-                        // renderOption={(option, { selected }) => {
-                        //     return (
-                        //         <React.Fragment>
-                        //             <Checkbox
-                        //                 name="hobbies"
-                        //                 icon={icon}
-                        //                 checkedIcon={checkedIcon}
-                        //                 style={{ marginRight: 8 }}
-                        //                 checked={selected}
-                        //                 onClick={(e) => setValue([option].filter((obj, index) => {
-                        //                     return [option].indexOf(obj) == e.target.value
-                        //                 }))}
-                        //             />
-                        //             {option.title}
-                        //         </React.Fragment>
-                        //     );
-                        // }}
+                        renderOption={(option, { selected }) => {
+                            return (
+                                <React.Fragment>
+                                    <Checkbox
+                                        name="hobbies"
+                                        icon={icon}
+                                        checkedIcon={checkedIcon}
+                                        style={{ marginRight: 8 }}
+                                        checked={selected}
+                                        onChange={(e) => setValue([option].filter((obj, index) => {
+                                            return [option].indexOf(obj) == e.target.value
+                                        }))}
+                                    />
+                                    {option.title}
+                                </React.Fragment>
+                            );
+                        }}
                         renderInput={params => (
                             <TextField
                                 {...params}
                                 {...console.log(params)}
+                                value={value}
                                 name="hobbies[ ]"
                                 variant="outlined"
                                 inputRef={register}
