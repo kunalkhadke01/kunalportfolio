@@ -25,15 +25,15 @@ function UpdateForm(props) {
     const [colleges, setCollege] = useState({ repos: null })
     const dispatch = useDispatch()
     console.log(props.history.location.state)
-    const handlechange = async (e) => {
-        const apiUrl = `http://universities.hipolabs.com/search?name=${e.target.value}`;
-        const responce = await fetch(apiUrl)
+    useEffect(() => {
+        const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
+        const responce = fetch(apiUrl)
             .then((res) => res.json())
-            .then((repos) => {
-                setCollege({ repos: repos });
+            .then((res) => {
+                setCollege({ repos: res });
             });
+    }, [setCollege])
 
-    }
     // console.log(colleges.repos ? colleges.repos.name : "")
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
@@ -103,58 +103,32 @@ function UpdateForm(props) {
 
 
 
+
                 <div class="col-md-12">
-                    {console.log(colleges)}
-                    <Controller
-                        name="country"
-                        as={Autocomplete}
-                        options={colleges}
+                    <label>college</label>
+                    <Autocomplete
+                        name="college"
+                        options={colleges.repos}
                         getOptionLabel={(option) => {
                             console.log(option)
-                            return option ? option.repos.name : " "
+                            return option.name || option
+
                         }
                         }
-                        style={{ width: 300 }}
+                        getOptionSelected={(option: option) => {
+                            const value = option.name
+                            return value
+                        }}
                         renderInput={(params) =>
-                            <input
+                            <TextField
                                 {...params}
-                                type="search"
-                                list="browsers"
-                                ref={register}
+                                {...console.log(params.inputProps.value)}
+                                variant="outlined"
+                                type="text"
+                                name="college"
+                                inputRef={register}
                             />}
-                        onChange={handlechange}
-                        control={control}
-                        defaultValue={null}
                     />
-                    <label>college</label>
-                    {/* <Autocomplete
-                        id="combo-box-demo"
-                        name="search"
-                        onChange={handlechange}
-                        options={colleges ? colleges.repos : ""}
-                        getOptionLabel={(option) => option.name}
-                        style={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
-                    /> */}
-                    <input
-                        type="search"
-                        list="browsers"
-                        name="college"
-                        onChange={handlechange}
-                        // options={colleges.repos ? colleges.repos.name : ""}
-                        ref={register({
-                            required: 'college is required.',
-                        })
-                        }
-                    />
-                    {/* {colleges.repos && colleges.repos.map(college => {
-                        console.log(college)
-                        return (
-                            <ul>
-                                <li>{college.name}</li>
-                            </ul>
-                        )
-                    })} */}
                     {errors.college && (
                         <p className="errorMsg">{errors.college.message}</p>
                     )}

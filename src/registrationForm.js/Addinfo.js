@@ -17,23 +17,39 @@ import {
 import { connect, useDispatch } from 'react-redux';
 import './Addinfo.css';
 // import TextField from '@material-ui/core/TextField';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+
+const top100Films = [
+    {
+        title: "criket"
+    },
+    {
+        title: "football"
+    }
+]
 function Users(props) {
     const DATA_TYPE = "DATA_TYPE";
     const { register, handleSubmit, errors, control } = useForm();
     const [colleges, setCollege] = useState({ repos: null })
+    const [value, setValue] = useState([])
     const dispatch = useDispatch()
 
-    const handlechange = async (e) => {
-        const apiUrl = `http://universities.hipolabs.com/search?name=${e.target.value}`;
-        const responce = await fetch(apiUrl)
+    useEffect(() => {
+        const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
+        const responce = fetch(apiUrl)
             .then((res) => res.json())
-            .then((repos) => {
-                setCollege({ repos: repos });
+            .then((res) => {
+                setCollege({ repos: res });
             });
-
+    }, [setCollege])
+    const Handlechange = (e) => {
+        setValue(e.target.checked)
     }
-    // console.log(colleges.repos ? colleges.repos.name : "")
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
         // setData(data)
@@ -103,72 +119,76 @@ function Users(props) {
 
 
                 <div class="col-md-12">
-                    {console.log(colleges)}
-                    <Controller
-                        name="country"
-                        as={Autocomplete}
-                        options={colleges}
+                    <label>college</label>
+                    <Autocomplete
+                        name="college"
+                        options={colleges.repos}
                         getOptionLabel={(option) => {
                             console.log(option)
-                            return option ? option.repos.name : " "
+                            return option.name
+
                         }
                         }
-                        style={{ width: 300 }}
+                        getOptionSelected={(option: option) => {
+                            const value = option.name
+                            return value
+                        }}
                         renderInput={(params) =>
-                            <input
+                            <TextField
                                 {...params}
-                                type="search"
-                                list="browsers"
-                                ref={register}
+                                // {...console.log(params.inputProps.value)}
+                                variant="outlined"
+                                type="text"
+                                name="college"
+                                inputRef={register}
+
                             />}
-                        onChange={handlechange}
-                        control={control}
-                        defaultValue={null}
                     />
-                    <label>college</label>
-                    {/* <Autocomplete
-                        id="combo-box-demo"
-                        name="search"
-                        onChange={handlechange}
-                        options={colleges ? colleges.repos : ""}
-                        getOptionLabel={(option) => option.name}
-                        style={{ width: 300 }}
-                        renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
-                    /> */}
-                    <input
-                        type="search"
-                        list="browsers"
-                        name="college"
-                        onChange={handlechange}
-                        // options={colleges.repos ? colleges.repos.name : ""}
-                        ref={register({
-                            required: 'college is required.',
-                        })
-                        }
-                    />
-                    {/* {colleges.repos && colleges.repos.map(college => {
-                        console.log(college)
-                        return (
-                            <ul>
-                                <li>{college.name}</li>
-                            </ul>
-                        )
-                    })} */}
                     {errors.college && (
                         <p className="errorMsg">{errors.college.message}</p>
                     )}
                 </div>
+
+
+
                 <div class="col-md-12">
                     <label>Hobbies</label>
-                    <input
-                        type="text"
-                        name="hobbies"
-                        ref={register({
-                            required: 'hobbies is required.',
-                            pattern: {
-                                message: 'hobbies is not valid.'
-                            }
-                        })}
+                    {console.log(value)}
+                    <Autocomplete
+                        multiple
+                        name="hobbies[ ]"
+                        options={top100Films}
+                        disableCloseOnSelect
+                        getOptionLabel={option => option.title}
+
+                        // renderOption={(option, { selected }) => {
+                        //     return (
+                        //         <React.Fragment>
+                        //             <Checkbox
+                        //                 name="hobbies"
+                        //                 icon={icon}
+                        //                 checkedIcon={checkedIcon}
+                        //                 style={{ marginRight: 8 }}
+                        //                 checked={selected}
+                        //                 onClick={(e) => setValue([option].filter((obj, index) => {
+                        //                     return [option].indexOf(obj) == e.target.value
+                        //                 }))}
+                        //             />
+                        //             {option.title}
+                        //         </React.Fragment>
+                        //     );
+                        // }}
+                        renderInput={params => (
+                            <TextField
+                                {...params}
+                                {...console.log(params)}
+                                name="hobbies[ ]"
+                                variant="outlined"
+                                inputRef={register}
+                                placeholder="Favorites"
+                                fullWidth
+                            />
+                        )}
                     />
                     {errors.hobbies && <p className="errorMsg">{errors.hobbies.message}</p>}
                 </div>

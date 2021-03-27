@@ -64,6 +64,7 @@ function StudentsDetail(props) {
                                         {/* <div class="col-sm-2"> */}
                                         <p>DOB:{item.birthday}</p>
                                         <p>{item.gender}</p>
+                                        <p>College:{item.college}</p>
                                         {/* </div> */}
                                         {/* <div class="col-sm-2"> */}
                                         <p>hobbies:{item.hobbies}</p>
