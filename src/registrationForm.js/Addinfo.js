@@ -218,13 +218,12 @@ function Users(props) {
                             );
                         }}
                         renderInput={params => (
-                            <TextField
+                            <input
                                 {...params}
                                 {...console.log(params)}
-                                value={value}
-                                name="hobbies[ ]"
+                                name="hobbies"
                                 variant="outlined"
-                                inputRef={register}
+                                ref={register}
                                 placeholder="Favorites"
                                 fullWidth
                             />

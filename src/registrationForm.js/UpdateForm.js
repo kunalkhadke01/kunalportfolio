@@ -248,6 +248,7 @@ function UpdateForm(props) {
                                 name="college"
                                 inputRef={register}
                             />}
+                        defaultValue={props.history.location.state.college}
                     />
                     {errors.college && (
                         <p className="errorMsg">{errors.college.message}</p>
