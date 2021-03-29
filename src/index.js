@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Portfolio from './Portfolio';
-import App from './App';
+// import Portfolio from './Portfolio';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AlertDialogSlide from './AboutMe';
+// import AlertDialogSlide from './AboutMe';
 import { createStore } from 'redux';
 import allData from './Services/index';
 import { Provider } from 'react-redux';
-import DetailPolicy from './DetailPolicy';
+// import DetailPolicy from './DetailPolicy';
 import Users from './registrationForm.js/Addinfo';
 import StudentsDetail from './registrationForm.js/StudentsDetail'
 import UpdateForm from './registrationForm.js/UpdateForm'
