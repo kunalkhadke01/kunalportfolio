@@ -17,22 +17,143 @@ import {
 import { connect, useDispatch } from 'react-redux';
 import './Addinfo.css';
 // import TextField from '@material-ui/core/TextField';
-
+const collegeinfo = [
+    {
+        "state-province": null,
+        "name": "Middlebury College",
+        "country": "United States",
+        "alpha_two_code": "US",
+        "domains": [
+            "middlebury.edu"
+        ],
+        "web_pages": [
+            "http://www.middlebury.edu/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "American University of Middle East",
+        "country": "Kuwait",
+        "alpha_two_code": "KW",
+        "domains": [
+            "aum.edu.kw"
+        ],
+        "web_pages": [
+            "http://www.aum.edu.kw/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "American University of Middle East",
+        "country": "Kuwait",
+        "alpha_two_code": "KW",
+        "domains": [
+            "aum.edu.kw"
+        ],
+        "web_pages": [
+            "http://www.aum.edu.kw/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middle Tennessee State University",
+        "country": "United States",
+        "alpha_two_code": "US",
+        "domains": [
+            "mtsu.edu"
+        ],
+        "web_pages": [
+            "http://www.mtsu.edu/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middle East Technical University",
+        "country": "Turkey",
+        "alpha_two_code": "TR",
+        "domains": [
+            "metu.edu.tr"
+        ],
+        "web_pages": [
+            "http://www.metu.edu.tr/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middle East University",
+        "country": "Jordan",
+        "alpha_two_code": "JO",
+        "domains": [
+            "meu.edu.jo"
+        ],
+        "web_pages": [
+            "http://www.meu.edu.jo/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middle Georgia State College",
+        "country": "United States",
+        "alpha_two_code": "US",
+        "domains": [
+            "mga.edu"
+        ],
+        "web_pages": [
+            "http://www.mga.edu/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middlesex University",
+        "country": "United Kingdom",
+        "alpha_two_code": "GB",
+        "domains": [
+            "mdx.ac.uk"
+        ],
+        "web_pages": [
+            "http://www.mdx.ac.uk/"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middlesex County College",
+        "country": "United States",
+        "alpha_two_code": "US",
+        "domains": [
+            "middlesexcc.edu"
+        ],
+        "web_pages": [
+            "http://www.middlesexcc.edu"
+        ]
+    },
+    {
+        "state-province": null,
+        "name": "Middlesex Community College",
+        "country": "United States",
+        "alpha_two_code": "US",
+        "domains": [
+            "middlesex.mass.edu"
+        ],
+        "web_pages": [
+            "http://www.middlesex.mass.edu"
+        ]
+    }
+]
 function UpdateForm(props) {
     const { register, handleSubmit, errors, control } = useForm({
         defaultValues: props.history.location.state
     });
-    const [colleges, setCollege] = useState({ repos: null })
+    const [colleges, setCollege] = useState({ repos: collegeinfo })
     const dispatch = useDispatch()
     console.log(props.history.location.state)
-    useEffect(() => {
-        const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
-        const responce = fetch(apiUrl)
-            .then((res) => res.json())
-            .then((res) => {
-                setCollege({ repos: res });
-            });
-    }, [setCollege])
+    // useEffect(() => {
+    //     const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
+    //     const responce = fetch(apiUrl)
+    //         .then((res) => res.json())
+    //         .then((res) => {
+    //             setCollege({ repos: res });
+    //         });
+    // }, [setCollege])
 
     // console.log(colleges.repos ? colleges.repos.name : "")
     const onSubmit = (data) => {
@@ -122,7 +243,6 @@ function UpdateForm(props) {
                         renderInput={(params) =>
                             <TextField
                                 {...params}
-                                {...console.log(params.inputProps.value)}
                                 variant="outlined"
                                 type="text"
                                 name="college"

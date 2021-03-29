@@ -32,21 +32,60 @@ const top100Films = [
         title: "football"
     }
 ]
+
+const collegeinfo = [
+    {
+        web_page: "http://www.meu.edu.jo/",
+        country: "Jordan",
+        domain: "meu.edu.jo",
+        name: "Middle East University"
+    },
+    {
+        web_page: "http://www.odtu.edu.tr/",
+        country: "Turkey",
+        domain: "odtu.edu.tr",
+        name: "Middle East Technical University"
+    },
+    {
+        web_page: "http://www.mtsu.edu/",
+        country: "USA",
+        domain: "mtsu.edu",
+        name: "Middle Tennessee State University"
+    },
+    {
+        web_page: "http://www.mga.edu/",
+        country: "USA",
+        domain: "mga.edu",
+        name: "Middle Georgia State College"
+    },
+    {
+        web_page: "http://www.mdx.ac.uk/",
+        country: "United Kingdom",
+        domain: "mdx.ac.uk",
+        name: "Middlesex University"
+    },
+    {
+        web_page: "http://www.middlebury.edu/",
+        country: "USA",
+        domain: "middlebury.edu",
+        name: "Middlebury College"
+    }
+]
 function Users(props) {
     const DATA_TYPE = "DATA_TYPE";
     const { register, handleSubmit, errors, control } = useForm();
-    const [colleges, setCollege] = useState({ repos: null })
+    const [colleges, setCollege] = useState({ repos: collegeinfo })
     const [value, setValue] = useState([])
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
-        const responce = fetch(apiUrl)
-            .then((res) => res.json())
-            .then((res) => {
-                setCollege({ repos: res });
-            });
-    }, [setCollege])
+    // useEffect(() => {
+    //     // const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
+    //     const responce = fetch(collegeinfo)
+    //         .then((res) => res.json())
+    //         .then((res) => {
+    //             setCollege({ repos: res });
+    //         });
+    // }, [setCollege])
     const Handlechange = (e) => {
         setValue(e.target.checked)
     }
