@@ -13,22 +13,22 @@ import { connect, useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '100%',
-        shadowColor: "#endregion",
-        shadowOpacity: 0.8,
-        // maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
+        display: "flex",
+
     },
     button: {
-        display: "block",
-        textAlign: "center",
-        appearance: "none",
-        marginTop: "20px",
-        border: "1px solid #333",
-        marginBottom: "20px",
+        backgroundColor: "rgba(255, 10, 135, 5)",
+        color: "#ffffff",
         textTransform: "uppercase",
         padding: "5px 5px",
         borderRadius: "2px",
+    },
+    card: {
+        width: '100%',
+        shadowColor: "#000000",
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        // maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
     },
     loading: {
         textAlign: "center",
@@ -47,9 +47,9 @@ function StudentsDetail(props) {
     if (props.list.usersList.state == 0) {
         return <p className={classes.loading}>Loading...</p>
     }
-    return (<div>
+    return (<div className={classes.root}>
 
-        <List className={classes.root}>
+        <List className={classes.card}>
             {users ? users.map((item, i) => {
                 return (<ListItem>
                     <ListItemAvatar>
@@ -59,46 +59,47 @@ function StudentsDetail(props) {
                     </ListItemAvatar>
                     <ListItemText primary={item.name} />
                     <div class="container">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div >
-                                        {/* <div class="col-sm-2"> */}
-                                        <p>DOB:{item.birthday}</p>
-                                        <p>{item.gender}</p>
-                                        <p>College:{item.college}</p>
-                                        {/* </div> */}
-                                        {/* <div class="col-sm-2"> */}
-                                        <p>hobbies:{item.hobbies}</p>
-                                        <p>Address:{item.Address}</p>
-                                        {/* </div> */}
+                        <div class="row">
+                            {/* <div class="col-md-12"> */}
 
-                                    </div>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button className={classes.button}
-                                        onClick={() => {
-                                            props.history.push({
-                                                pathname: "/udate_form",
-                                                state: item
-                                            })
-                                        }}
-                                    >Update</button>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button className={classes.button} key="button" onClick={() => {
-                                        console.log(item)
-                                        dispatch({
-                                            type: 'DELETE_USER', arg: props.list.usersList.state.filter((items, index) => {
-                                                return props.list.usersList.state.indexOf(items) == !item.index
-                                            })
-                                        })
-                                        setUsers([props.list.usersList.state])
+                            <div class="col-md-6">
+                                <div >
+                                    {/* <div class="col-sm-2"> */}
+                                    <p>DOB:-<span>{item.birthday}</span></p>
+                                    <p>Gender:-<span>{item.gender}</span></p>
+                                    <p>College:-<span>{item.college}</span></p>
+                                    {/* </div> */}
+                                    {/* <div class="col-sm-2"> */}
+                                    <p>hobbies:-<span>{item.hobbies}</span></p>
+                                    <p>Address:-<span>{item.Address}</span></p>
+                                    {/* </div> */}
 
-                                    }}>Delete</button>
                                 </div>
                             </div>
+                            <div class="col-md-3">
+                                <button type="button" style={{ backgroundColor: "red" }}
+                                    onClick={() => {
+                                        props.history.push({
+                                            pathname: "/udate_form",
+                                            state: item
+                                        })
+                                    }}
+                                >Update</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button key="button" type="button" onClick={() => {
+                                    console.log(item)
+                                    dispatch({
+                                        type: 'DELETE_USER', arg: props.list.usersList.state.filter((items, index) => {
+                                            return props.list.usersList.state.indexOf(items) == !item.index
+                                        })
+                                    })
+                                    setUsers([props.list.usersList.state])
+
+                                }}>Delete</button>
+                            </div>
                         </div>
+                        {/* </div> */}
                     </div>
                 </ListItem>)
             }) : <p>Loding...</p>}
