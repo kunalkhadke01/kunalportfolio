@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from "react-hook-form";
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Avatar from '@material-ui/core/Avatar';
+import BackContainer from '../content/backContainer';
+
 // import Select from "react-select";
 import {
     TextField,
@@ -146,16 +149,24 @@ function UpdateForm(props) {
     const [colleges, setCollege] = useState({ repos: collegeinfo })
     const dispatch = useDispatch()
     console.log(props.history.location.state)
-    // useEffect(() => {
-    //     const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
-    //     const responce = fetch(apiUrl)
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //             setCollege({ repos: res });
-    //         });
-    // }, [setCollege])
+    const [imageUrl, setImage] = useState("")
 
-    // console.log(colleges.repos ? colleges.repos.name : "")
+    console.log(props.list.usersList.state)
+
+    console.log(imageUrl)
+
+    const getBase64 = (cb) => {
+        let file = props.history.location.state.img[0]
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+    getBase64().then(
+        data => setImage(data)
+    );
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
         props.history.push("/student-detail")
@@ -164,7 +175,11 @@ function UpdateForm(props) {
     };
     return (
         <div className="App">
+            <BackContainer title="UPDATE INFORMATION" />
             <form onSubmit={handleSubmit(onSubmit)}>
+                <Avatar style={{ marginTop: 60, marginLeft: "40%", width: "80px", height: "80px" }}>
+                    <img src={imageUrl} name="img" type="image" style={{ width: "60px", height: "60px" }} />
+                </Avatar>
                 <div class="col-md-12">
                     <label>name</label>
                     <input

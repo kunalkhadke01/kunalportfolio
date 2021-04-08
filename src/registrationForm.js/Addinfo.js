@@ -19,6 +19,9 @@ import './Addinfo.css';
 // import TextField from '@material-ui/core/TextField';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Avatar from '@material-ui/core/Avatar';
+import FaceIcon from '@material-ui/icons/Face';
+import BackContainer from '../content/backContainer';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -92,13 +95,31 @@ function Users(props) {
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
         // setData(data)
-        props.history.push('/student-detail')
+        props.history.push('/Login')
 
     };
+
     return (
         <div className="App">
+            <BackContainer title="WELCOME TO PUNE UNIVERSITY" />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="col-md-12">
+                    <Avatar style={{ marginTop: 60, marginLeft: "40%", width: "80px", height: "80px" }}>
+                        <input type="file"
+                            id="img"
+                            name="img"
+                            accept="image/*"
+                            ref={register({
+                                required: 'profile image is required.',
+                                pattern: {
+                                    message: 'profile image is not valid.'
+                                }
+                            })}
+                            style={{ opacity: 0 }} />
+
+                        <FaceIcon style={{ marginLeft: -80 }} />
+                    </Avatar>
+                    {errors.img && <p style={{ color: "red" }}>{errors.img.message}</p>}
                     <label>name</label>
                     <input
                         type="text"
