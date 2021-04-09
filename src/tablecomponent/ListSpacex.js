@@ -74,7 +74,7 @@ const ListSpacex = (props) => {
         fetchData()
     }, [setData])
     return (<div>
-        <BackContainer onClick={() => props.history.goBack()} />
+        <BackContainer onClick={() => props.history.goBack()} title="ROCKET SUMMARY" />
         <List className={classes.root} subheader={<li />}>
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((sectionId) => (
                 <li key={`section-${sectionId}`} className={classes.listSection}>

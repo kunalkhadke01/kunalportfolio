@@ -55,6 +55,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'inherit',
         padding: 0,
     },
+    title: {
+        marfinLeft: 30,
+        marginTop: 5
+    }
 }));
 
 const BackContainer = (props) => {
@@ -65,13 +69,11 @@ const BackContainer = (props) => {
                 <ArrowBackIcon
                     edge="start"
                     color="inherit"
-                    // aria-label="open drawer"
-                    // className={clsx(classes.menuButton, classes.menuButtonHidden)}
                     onClick={props.onClick}
                 >
                     {/* <MenuIcon /> */}
                 </ArrowBackIcon>
-                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={clsx(classes.title)}>
                     {props.title}
                 </Typography>
             </Toolbar>
