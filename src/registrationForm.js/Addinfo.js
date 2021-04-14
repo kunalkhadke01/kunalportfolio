@@ -22,6 +22,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Avatar from '@material-ui/core/Avatar';
 import FaceIcon from '@material-ui/icons/Face';
 import BackContainer from '../content/backContainer';
+var getBase64 = require('get-base64');
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -79,26 +80,40 @@ function Users(props) {
     const { register, handleSubmit, errors, control } = useForm();
     const [colleges, setCollege] = useState({ repos: collegeinfo })
     const [value, setValue] = useState([])
+    const [fileType, setUrl] = useState("")
+    const [img, setImage] = useState("")
     const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     // const apiUrl = `http://universities.hipolabs.com/search?name=middle`;
-    //     const responce = fetch(collegeinfo)
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //             setCollege({ repos: res });
-    //         });
-    // }, [setCollege])
-    const Handlechange = (e) => {
-        setValue(e.target.checked)
+
+    // const Handlechange = (e) => {
+    //     setValue(top100Films)
+    // }
+    const onHandlechange = (e) => {
+        setUrl(e.target.files[0])
     }
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
         // setData(data)
+        console.log(data)
         props.history.push('/Login')
 
     };
-
+    console.log(props.list.usersList.state)
+    const getBase64 = (cb) => {
+        if (fileType) {
+            let file = fileType
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            }).then(
+                data => setImage(data)
+            );
+        }
+    }
+    getBase64();
+    console.log(img)
     return (
         <div className="App">
             <BackContainer title="WELCOME TO PUNE UNIVERSITY" />
@@ -109,6 +124,7 @@ function Users(props) {
                             id="img"
                             name="img"
                             accept="image/*"
+                            onChange={onHandlechange}
                             ref={register({
                                 required: 'profile image is required.',
                                 pattern: {
@@ -116,10 +132,16 @@ function Users(props) {
                                 }
                             })}
                             style={{ opacity: 0 }} />
-
-                        <FaceIcon style={{ marginLeft: -80 }} />
+                        {img ?
+                            <img
+                                src={img}
+                                type="image"
+                                name="image"
+                                ref={register}
+                                style={{ width: "80px", height: "80px", marginLeft: -80 }} /> :
+                            <FaceIcon style={{ marginLeft: -80 }} />}
                     </Avatar>
-                    {errors.img && <p style={{ color: "red" }}>{errors.img.message}</p>}
+                    {errors.image && <p style={{ color: "red" }}>{errors.image.message}</p>}
                     <label>name</label>
                     <input
                         type="text"

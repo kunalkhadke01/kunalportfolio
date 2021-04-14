@@ -169,7 +169,7 @@ function UpdateForm(props) {
     );
     const onSubmit = (data) => {
         dispatch({ type: 'DATA_SUBMIT', data: data })
-        props.history.push("/student-detail")
+        props.history.push("/")
         alert("form is submited")
 
     };

@@ -2,7 +2,7 @@ const data = localStorage.getItem("STATE")
 
 const initialState = JSON.parse(data)
 console.log(data)
-const user = (state, action) => {
+const user = (state = initialState, action) => {
     console.log(action)
     switch (action.type) {
         case "DATA_SUBMIT":

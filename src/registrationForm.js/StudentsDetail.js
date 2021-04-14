@@ -44,7 +44,7 @@ function StudentsDetail(props) {
     const [users, setUsers] = useState(props.list.usersList.state)
     const [imageUrl, setImage] = useState("")
     useEffect(() => {
-        localStorage.setItem("STATE", JSON.stringify(users, imageUrl))
+        localStorage.setItem("STATE", JSON.stringify(users))
     })
     console.log(props.list.usersList.state)
 
