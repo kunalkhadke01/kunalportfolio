@@ -10,21 +10,33 @@ import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import BackContainer from "../content/backContainer";
+import Draggable, { DraggableCore } from 'react-draggable';
+// import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.action.hover,
         position: 'relative',
         overflow: 'auto',
-        maxHeight: 300,
+        maxHeight: "50px",
+        height: "100px",
+        marginBottom: 4
     },
-    listSection: {
-        backgroundColor: 'inherit',
-    }, toolbar: {
+    resurvedBox: {
+        width: '100%',
+        // backgroundColor: theme.palette.divider,
+        border: "1px solid black",
+        position: 'relative',
+        overflow: 'auto',
+        height: "500px",
+        maxHeight: "200px",
+        marginBottom: 4,
+        marginTop: 50
+    },
+    toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
     },
     toolbarIcon: {
@@ -75,20 +87,27 @@ const ListSpacex = (props) => {
     }, [setData])
     return (<div>
         <BackContainer onClick={() => props.history.goBack()} title="ROCKET SUMMARY" />
-        <List className={classes.root} subheader={<li />}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((sectionId) => (
-                <li key={`section-${sectionId}`} className={classes.listSection}>
-                    <ul className={classes.ul}>
-                        <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
-                        {data.map((item) => (
-                            <ListItem key={`item-${sectionId}-${item}`}>
+
+        <div className={classes.resurvedBox}>
+            <h4>Important to read</h4>
+        </div>
+        <ul >
+
+            <li className={classes.ul}>
+                {data.map((item, index) => (
+                    <Draggable
+                        axis="y"
+                        draggableId={index}
+                    >
+                        <List className={classes.root} subheader={<li />} key={index} >
+                            <ListItem >
                                 <ListItemText primary={item.rocket.rocket_name} secondary={item.details} />
                             </ListItem>
-                        ))}
-                    </ul>
-                </li>
-            ))}
-        </List>
+                        </List>
+                    </Draggable>
+                ))}
+            </li>
+        </ul>
     </div>
     )
 }

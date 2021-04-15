@@ -56,8 +56,11 @@ const useStyles = makeStyles((theme) => ({
         padding: 0,
     },
     title: {
-        marfinLeft: 30,
+        marginLeft: 60,
         marginTop: 5
+    },
+    arrow: {
+        marginBottom: 5
     }
 }));
 
@@ -70,6 +73,7 @@ const BackContainer = (props) => {
                     edge="start"
                     color="inherit"
                     onClick={props.onClick}
+                    className={classes.arrow}
                 >
                     {/* <MenuIcon /> */}
                 </ArrowBackIcon>

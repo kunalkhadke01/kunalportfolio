@@ -42,7 +42,11 @@ export default function MyTable(props) {
         setData({ rows: data.rows.sort((a, b) => b[key] - a[key]) })
         setSort(true)
     }
-
+    const Sort = (key) => {
+        console.log(key)
+        setData({ rows: data.rows.sort((a, b) => a[key] - b[key]) })
+        setSort(false)
+    }
     useEffect(() => {
         async function fetchData() {
             const SPACEINFO = await fetch('https://api.spacexdata.com/v2/launches')
@@ -64,8 +68,8 @@ export default function MyTable(props) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Site Id</TableCell>
-                        <TableCell align="right" onClick={() => SortBy('launch_year')}>
-                            lounch year    {sort == true ? <ArrowDownwardIcon /> : <ArrowUpwardIcon />}</TableCell>
+                        <TableCell align="right" >
+                            lounch year    {sort == true ? <ArrowDownwardIcon onClick={() => Sort('launch_year')} /> : <ArrowUpwardIcon onClick={() => SortBy('launch_year')} />}</TableCell>
 
                         <TableCell align="right" onClick={() => SortBy('mission_name')}>
                             mission name</TableCell>

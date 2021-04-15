@@ -25,17 +25,20 @@ ReactDOM.render(
 
                 {/* <MyTable /> */}
                 <Switch>
-                    {/* <Route path="/" exact component={Dashboard} />
+                    <Route path="/" exact component={Dashboard} />
                     <Route path="/lounch_info" component={ListSpacex} />
-                    <Route path="/lounch_table" component={MyTable} /> */}
+                    <Route path="/lounch_table" component={MyTable} />
 
-
+                    {/* collage entry  */}
+                    {/* 
                     <Route path="/" exact component={Users} />
                     <Route path="/login" component={Login} />
 
                     <Route path="/student-detail" component={StudentsDetail} />
-                    <Route path="/udate_form" component={UpdateForm} />
+                    <Route path="/udate_form" component={UpdateForm} /> */}
 
+
+                    {/* selfcam  */}
                     {/* <Route path="/" exact component={App} />
                     <Route path="/detail" component={DetailPolicy} />
                     <Route path="/aboutme" component={AlertDialogSlide} /> */}
