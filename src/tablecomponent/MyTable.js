@@ -60,6 +60,9 @@ export default function MyTable(props) {
         console.log('Data: ', data);
     };
     console.log(data)
+    if (data == []) {
+        return <p className={classes.loading}>Loading...</p>
+    }
     return (<div>
         <BackContainer onClick={() => props.history.goBack()} component={Paper} title="DETAIL" />
 

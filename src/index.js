@@ -14,6 +14,7 @@ import Users from './registrationForm.js/Addinfo';
 import Login from './registrationForm.js/Login';
 import StudentsDetail from './registrationForm.js/StudentsDetail';
 import UpdateForm from './registrationForm.js/UpdateForm';
+import Simpleui from './tablecomponent/Simpleui';
 const store = createStore(allData)
 
 ReactDOM.render(
@@ -28,7 +29,7 @@ ReactDOM.render(
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/lounch_info" component={ListSpacex} />
                     <Route path="/lounch_table" component={MyTable} />
-
+                    <Route path="/simpleui" component={Simpleui} />
                     {/* collage entry  */}
                     {/* 
                     <Route path="/" exact component={Users} />
